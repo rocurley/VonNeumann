@@ -302,8 +302,8 @@ function upI()
     end
 end
 function clearUp()
-    turtle.drop()
     turtle.select(16)
+    turtle.drop()
     if turtle.detectUp() then
         turtle.digUp()
     else
@@ -317,8 +317,8 @@ function downI()
     end
 end
 function clearDown()
-    turtle.drop()
     turtle.select(16)
+    turtle.drop()
     if turtle.detectDown() then
         turtle.digDown()
     else
@@ -332,8 +332,8 @@ function forwardI()
     end
 end
 function clearFront()
-    turtle.drop()
     turtle.select(16)
+    turtle.drop()
     if turtle.detect() then
         turtle.dig()
     else
