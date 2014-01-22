@@ -63,6 +63,14 @@ function reploy()
     turtle.forward()
     turtle.turnRight()
     solarRowUp()
+    turtle.turnRight()
+    for i=1,4 do
+        turtle.forward()
+    end
+    turtle.turnRight()
+    for i=1,9 do
+        turtle.forward()
+    end
 end
 function engineRowUp()
     for i=1,6,1 do
