@@ -336,7 +336,6 @@ function backI()
         turtle.turnRight()
     end
 end
-function placeI()
     
 
 
