@@ -63,13 +63,9 @@ function reploy()
     turtle.turnRight()
     solarRowUp()
     turtle.turnRight()
-    for i=1,4 do
-        forwardI()
-    end
+    forwardI(4)
     turtle.turnRight()
-    for i=1,9 do
-        forwardI()
-    end
+    forwardI(10)--1 more then the quarry length because it looks cool
 end
 function engineRowUp()
     for i=1,6,1 do
