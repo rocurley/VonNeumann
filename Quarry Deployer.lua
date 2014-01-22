@@ -144,127 +144,101 @@ function stackUp()
     turtle.dig()
 end
 function deploy()
-    turtle.select(10)
     turtle.turnLeft()
     turtle.turnLeft()
     --Placing the left wooden pipes
     for i=1,12,1 do
-        turtle.back()
-        turtle.back()
-        turtle.place()
+        backI(2)
+        placeI(10)
     end
     turtle.turnLeft()
-    turtle.forward()
+    forwardI()
     turtle.turnLeft()
-    turtle.back()
-    turtle.select(4)
+    backI()
     --Placing the Quarry and ME stack
-    turtle.place() --WARNING: QUARRIES WILL ALWAYS FACE NORTH
+    placeI(4) --WARNING: QUARRIES WILL ALWAYS FACE NORTH
     for k,v in pairs({8,7,6,5}) do
-        turtle.up()
-        turtle.select(v)
-        turtle.place()
+        upI()
+        placeI(v)
     end
-    turtle.down()
-    turtle.down()
+    downI(2)
     --Pulling the HDD from hammerspace
     turtle.turnRight()
-    turtle.select(2)
-    turtle.place()
+    placeI(2)
     turtle.suck()
     turtle.turnLeft()
     turtle.drop()
     turtle.turnRight()
     turtle.dig()
     turtle.turnLeft()
-    turtle.down()
-    turtle.down()
-    turtle.select(9)
+    downI(2)
     --placing the quartz pipes
     for i=1,23,1 do
-        turtle.back()
-        turtle.place()
+        backI()
+        placeI(9)
     end
     turtle.turnRight()
-    turtle.forward()
+    forwardI()
     turtle.turnRight()
-    turtle.select(10)
     --placing the right wooden pipes
     for i=1,12,1 do
-        turtle.back()
-        turtle.back()
-        turtle.place()
+        backI(2)
+        placeI(10)
     end
     turtle.turnLeft()
-    turtle.forward()
+    forwardI()
     turtle.turnLeft()
     engineRowDown()
     turtle.turnRight()
-    turtle.forward()
+    forwardI()
     turtle.turnRight()
     solarRowDown()
-    turtle.down()
+    downI()
     turtle.turnRight()
     for i=1,5,1 do
-        turtle.forward()
+        forwardI()
     end
-    turtle.up()
+    upI()
     turtle.turnRight()
     engineRowDown()
     turtle.turnLeft()
-    turtle.forward()
+    forwardI()
     turtle.turnLeft()
     solarRowDown()
     turtle.turnLeft()
-    turtle.forward()
-    for i=1,4,1 do
-        turtle.up()
-    end
-    turtle.select(5)
-    turtle.place()
-    turtle.down()
-    turtle.select(1)
-    turtle.place()
+    forwardI()
+    upI(4)
+    placeI(5)
+    downI()
+    placeI(1)
 end
 function solarRowDown()
     for i=1,3,1 do
-        turtle.back()
-        turtle.back()
-        turtle.select(5)
-        turtle.placeUp()
-        turtle.select(14)
+        backI(2)
+        placeUpI(5)
         for j=1,3,1 do
-            turtle.place()
-            turtle.back()
+            placeI(14)
+            backI()
         end
-        turtle.select(5)
-        turtle.place()
-        turtle.select(14)
-        turtle.back()
-        turtle.place()
-        turtle.select(5)
-        turtle.placeUp()
-        turtle.select(14)
-        turtle.back()
-        turtle.place()
-        turtle.back()
-        turtle.place()
+        placeI(5)
+        backI()
+        placeI(14)
+        placeUpI(5)
+        backI()
+        placeI(14)
+        backI()
+        placeI(14)
     end
 end
 function engineRowDown()
     for i=1,6,1 do
-        turtle.back()
-        turtle.back()
-        turtle.select(11)
-        turtle.place()
-        turtle.select(13)
-        turtle.placeDown()
-        turtle.back()
-        turtle.select(12)
-        turtle.place()
-        turtle.back()
-        turtle.select(11)
-        turtle.place()
+        backI(2)
+        placeI(11)
+        placeDownI(13)
+        backI()
+        placeI(12)
+        backI()
+        placeI(11)
     end
 end
 function clear(n)
@@ -296,9 +270,12 @@ function placeI(slot)
         turtle.select(slot)
     end
 end
-function upI()
-    while not turtle.up() do
-        clearUp()
+function upI(n)
+    n = n or 1
+    for i=1,n do
+        while not turtle.up() do
+            clearUp()
+        end
     end
 end
 function clearUp()
@@ -311,9 +288,12 @@ function clearUp()
     end
     turtle.drop()
 end
-function downI()
-    while not turtle.down() do
-        clearDown()
+function downI(n)
+    n = n or 1
+    for i=1,n do
+        while not turtle.down() do
+            clearDown()
+        end
     end
 end
 function clearDown()
@@ -326,9 +306,12 @@ function clearDown()
     end
     turtle.drop()
 end
-function forwardI()
-    while not turtle.forward() do
-        clearFront()
+function forwardI(n)
+    n = n or 1
+    for i=1,n do
+        while not turtle.forward() do
+            clearFront()
+        end
     end
 end
 function clearFront()
