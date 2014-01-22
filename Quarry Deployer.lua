@@ -105,7 +105,7 @@ function solarRowUp()
         end
         turtle.select(5)
         turtle.digUp()
-        forwardI()
+        forwardI(2)
     end
 end
 function stackUp()
