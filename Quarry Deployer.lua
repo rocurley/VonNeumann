@@ -328,7 +328,7 @@ function forwardI()
     end
 end
 function backI()
-    if not turtle.back()
+    if not turtle.back() do
         turtle.turnRight()
         turtle.turnRight()
         forwardI()
