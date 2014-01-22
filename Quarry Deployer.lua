@@ -300,7 +300,7 @@ function clearArea()
     turtle.turnRight()
     clear(17)
 end
-function up!()
+function upI()
     while not turtle.up() do
         if turtle.detectUp() do
             turtle.digUp()
@@ -309,7 +309,7 @@ function up!()
         end
     end
 end
-function down!()
+function downI()
     while not turtle.down() do
         if turtle.detectDown() do
             turtle.digDown()
@@ -318,7 +318,7 @@ function down!()
         end
     end
 end
-function forward!()
+function forwardI()
     while not turtle.forward() do
         if turtle.detect() do
             turtle.dig()
@@ -327,16 +327,16 @@ function forward!()
         end
     end
 end
-function back!()
+function backI()
     if not turtle.back()
         turtle.turnRight()
         turtle.turnRight()
-        forward!
+        forwardI()
         turtle.turnRight()
         turtle.turnRight()
     end
 end
-function place!()
+function placeI()
     
 
 
