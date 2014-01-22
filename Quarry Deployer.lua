@@ -271,7 +271,7 @@ function placeI(slot)
     end
 end
 function upI(n)
-    n = n or 1
+    n = (n or 1)
     for i=1,n do
         while not turtle.up() do
             clearUp()
@@ -289,7 +289,7 @@ function clearUp()
     turtle.drop()
 end
 function downI(n)
-    n = n or 1
+    n = (n or 1)
     for i=1,n do
         while not turtle.down() do
             clearDown()
@@ -307,7 +307,7 @@ function clearDown()
     turtle.drop()
 end
 function forwardI(n)
-    n = n or 1
+    n = (n or 1)
     for i=1,n do
         while not turtle.forward() do
             clearFront()
@@ -325,12 +325,15 @@ function clearFront()
     turtle.drop()
 end
 function backI()
-    if not turtle.back() then
-        turtle.turnRight()
-        turtle.turnRight()
-        forwardI()
-        turtle.turnRight()
-        turtle.turnRight()
+    n = (n or 1)
+    for i=1,n do
+        if not turtle.back() then
+            turtle.turnRight()
+            turtle.turnRight()
+            forwardI()
+            turtle.turnRight()
+            turtle.turnRight()
+        end
     end
 end
     
