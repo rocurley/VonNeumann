@@ -302,7 +302,7 @@ function clearArea()
 end
 function upI()
     while not turtle.up() do
-        if turtle.detectUp() do
+        if turtle.detectUp() then
             turtle.digUp()
         else
             turtle.attackUp()
@@ -311,7 +311,7 @@ function upI()
 end
 function downI()
     while not turtle.down() do
-        if turtle.detectDown() do
+        if turtle.detectDown() then
             turtle.digDown()
         else
             turtle.attackDown()
@@ -320,7 +320,7 @@ function downI()
 end
 function forwardI()
     while not turtle.forward() do
-        if turtle.detect() do
+        if turtle.detect() then
             turtle.dig()
         else
             turtle.attack()
@@ -328,7 +328,7 @@ function forwardI()
     end
 end
 function backI()
-    if not turtle.back() do
+    if not turtle.back() then
         turtle.turnRight()
         turtle.turnRight()
         forwardI()
