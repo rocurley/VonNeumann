@@ -30,8 +30,6 @@ function runOnce()
 end
 function reploy()
     stackUp()
-    backI(2)
-    turtle.turnRight()
     solarRowUp()
     turtle.turnLeft()
     turtle.forward()
