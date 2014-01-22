@@ -20,6 +20,14 @@ They should be used as follows:
 16: Kept clear for inventory purification
 
 --]]
+function runOnce()
+    deploy()
+    qu=peripheral.wrap("front")
+    while (qu.isActive()=="true") do
+        os.sleep(1)
+    end
+    reploy()
+end
 function reploy()
     stackUp()
     backI(2)
@@ -116,6 +124,7 @@ function stackUp()
     turtle.select(16)
     turtle.drop()
     upI(3)
+    turtle.select(5)
     turtle.dig()
     downI()
     turtle.select(6)
