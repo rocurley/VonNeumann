@@ -300,3 +300,44 @@ function clearArea()
     turtle.turnRight()
     clear(17)
 end
+function up!()
+    while not turtle.up() do
+        if turtle.detectUp() do
+            turtle.digUp()
+        else
+            turtle.attackUp()
+        end
+    end
+end
+function down!()
+    while not turtle.down() do
+        if turtle.detectDown() do
+            turtle.digDown()
+        else
+            turtle.attackDown()
+        end
+    end
+end
+function forward!()
+    while not turtle.forward() do
+        if turtle.detect() do
+            turtle.dig()
+        else
+            turtle.attack()
+        end
+    end
+end
+function back!()
+    if not turtle.back()
+        turtle.turnRight()
+        turtle.turnRight()
+        forward!
+        turtle.turnRight()
+        turtle.turnRight()
+    end
+end
+function place!()
+    
+
+
+
