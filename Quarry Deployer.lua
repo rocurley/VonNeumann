@@ -324,7 +324,7 @@ function clearFront()
     end
     turtle.drop()
 end
-function backI()
+function backI(n)
     n = (n or 1)
     for i=1,n do
         if not turtle.back() then
