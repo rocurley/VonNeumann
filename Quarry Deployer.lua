@@ -16,6 +16,8 @@ They should be used as follows:
 12: Redstone Torch (8)
 13: Cobblestone (8)
 14: Copper Cable (insulation optional)
+15:
+16: Kept clear for inventory purification
 
 --]]
 function reploy()
@@ -273,59 +275,71 @@ function clear(n)
         turtle.digDown()
     end
 end
-function clearArea()
-    clear(18)
-    turtle.turnLeft()
-    clear(1)
-    turtle.turnLeft()
-    clear(17)
-    turtle.turnRight()
-    clear(1)
-    turtle.turnRight()
-    clear(17)
-    turtle.turnLeft()
-    clear(1)
-    turtle.turnLeft()
-    clear(17)
-    turtle.turnRight()
-    clear(1)
-    turtle.turnRight()
-    clear(17)
-    turtle.turnLeft()
-    clear(1)
-    turtle.turnLeft()
-    clear(17)
-    turtle.turnRight()
-    clear(1)
-    turtle.turnRight()
-    clear(17)
+function placeUpI(slot)
+    turtle.select(slot)
+    while not turtle.placeUp() do
+        clearUp()
+        turtle.select(slot)
+    end
+end
+function placeDownI(slot)
+    turtle.select(slot)
+    while not turtle.placeDown() do
+        clearDown()
+        turtle.select(slot)
+    end
+end
+function placeI(slot)
+    turtle.select(slot)
+    while not turtle.place() do
+        clearFront()
+        turtle.select(slot)
+    end
 end
 function upI()
     while not turtle.up() do
-        if turtle.detectUp() then
-            turtle.digUp()
-        else
-            turtle.attackUp()
-        end
+        clearUp()
     end
+end
+function clearUp()
+    turtle.drop()
+    turtle.select(16)
+    if turtle.detectUp() then
+        turtle.digUp()
+    else
+        turtle.attackUp()
+    end
+    turtle.drop()
 end
 function downI()
     while not turtle.down() do
-        if turtle.detectDown() then
-            turtle.digDown()
-        else
-            turtle.attackDown()
-        end
+        clearDown()
     end
+end
+function clearDown()
+    turtle.drop()
+    turtle.select(16)
+    if turtle.detectDown() then
+        turtle.digDown()
+    else
+        turtle.attackDown()
+    end
+    turtle.drop()
 end
 function forwardI()
     while not turtle.forward() do
-        if turtle.detect() then
-            turtle.dig()
-        else
-            turtle.attack()
-        end
+        clearFront()
     end
+end
+function clearFront()
+    turtle.drop()
+    turtle.select(16)
+    if turtle.detect() then
+        turtle.dig()
+    else
+        turtle.attack()
+    end
+    turtle.drop()
 end
 function backI()
     if not turtle.back() then
