@@ -6,20 +6,25 @@ They should be used as follows:
 02: Blank HDD  (blue)
 03: Full  HDD  (yellow)
 04: Quarry
-05: LV Solar (17)
+05: LV Solar (20)
 06: ME Controller
 07: ME Drive
 08: ME Interface
-09: Quartz Conductive Pipe (16)
-10: Wood Conductive Pipe   (16)
-11: Electric Engine (16)
-12: Redstone Torch (8)
-13: Cobblestone (8)
-14: Copper Cable (insulation optional)
+09: Quartz Conductive Pipe (23)
+10: Wood Conductive Pipe   (24)
+11: Electric Engine (24)
+12: Redstone Torch (12)
+13: Cobblestone (12)
+14: Copper Cable (insulation optional) (36)
 15:
 16: Kept clear for inventory purification
 
 --]]
+function go()
+    while true do
+        runOnce()
+    end
+end
 function runOnce()
     deploy()
     qu=peripheral.wrap("front")
@@ -220,8 +225,8 @@ function deploy()
     solarRowDown()
     turtle.turnLeft()
     forwardI()
-    turtle.left()
-    turtle.left()
+    turtle.turnLeft()
+    turtle.turnLeft()
     placeI(5)
     backI()
     placeI(1)
@@ -352,7 +357,26 @@ function backI(n)
         end
     end
 end
-    
+function loadUp()
+    sort=perpheral.load("back")
+    while turtle.getItemCount(1)<1 do
+        sort.extract(3,getUUID(2671,0),2,1)
+    end
+end
+function getID(uuid)
+  if uuid > 32768 then
+    id = uuid % bit.blshift(1,15) -- this line, originally done wrong by Nevercast, was corrected by JateZero
+    meta = bit.blogic_rshift(uuid-id,15) -- this line was corrected by JateZero
+  else
+    id = uuid
+    meta = 0
+  end
+  -- return id, meta
+end
+function getUUID(id, meta)
+   uuid = id + meta * 32768
+   return uuid
+ end
 
 
 
