@@ -358,7 +358,7 @@ function backI(n)
     end
 end
 function loadUp()
-    sort=perpheral.wrap("back")
+    sort=perpheripheral.wrap("back")
     while turtle.getItemCount(1)<1 do
         sort.extract(3,getUUID(2671,0),2,1)
     end
