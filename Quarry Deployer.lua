@@ -364,7 +364,20 @@ function load(id,meta,num,slot)
     end
 end
 function loadUp()
-    load(2671,0,1,1)
+    load( 2671,   0, 1, 1)
+    load(  252,2723, 1, 2)
+    load(  252,2724, 1, 3)
+    load( 1503,   0, 1, 4)
+    load(  650,   0,20, 5)
+    load(  900,   2, 1, 6)
+    load(  900,   3, 1, 7)
+    load(  900,   8, 1, 8)
+    load(19464,   0,23, 9)
+    load(19456,   0,24,10)
+    load( 1404,   0,24,11)
+    load(   76,   0,12,12)
+    load(    4,   0,12,13)
+    load(30184,   1,36,14)
 end
 function getID(uuid)
   if uuid > 32768 then
