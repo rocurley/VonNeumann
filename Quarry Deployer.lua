@@ -357,11 +357,14 @@ function backI(n)
         end
     end
 end
-function loadUp()
+function load(id,meta,num,slot)
     sort=peripheral.wrap("back")
-    while turtle.getItemCount(1)<1 do
-        sort.extract(3,getUUID(2671,0),2,1)
+    while turtle.getItemCount(slot)<num do
+        sort.extract(3,getUUID(id,meta),2,num-turtle.getItemCount(slot))
     end
+end
+function loadUp()
+    load(2671,0,1,1)
 end
 function getID(uuid)
   if uuid > 32768 then
