@@ -379,6 +379,9 @@ function loadUp()
     load(   76,   0,12,12)
     load(    4,   0,12,13)
     load(30184,   1,36,14)
+    load(  263,   0, 1,15)
+    turtle.select(15)
+    turtle.refuel()
 end
 function getID(uuid)
   if uuid > 32768 then
