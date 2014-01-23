@@ -361,6 +361,7 @@ function load(id,meta,num,slot)
     sort=peripheral.wrap("back")
     while turtle.getItemCount(slot)<num do
         sort.extract(3,getUUID(id,meta),2,num-turtle.getItemCount(slot))
+        os.sleep(.1)
     end
 end
 function loadUp()
