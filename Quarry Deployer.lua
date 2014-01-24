@@ -425,10 +425,10 @@ function makeMiner()
     placeI(6)
     turtle.turnRight()
     turtle.turnRight()
-    load(1228,0,1,16)
+    load(1228,0,1,1)
     turtle.turnRight()
     backI()
-    placeI(16)
+    placeI(1)
 end
     
     
