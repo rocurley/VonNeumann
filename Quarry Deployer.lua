@@ -430,7 +430,7 @@ function makeMiner()
     backI()
     placeI(1)
     while turtle.detect() do
-        wait(1)
+        os.wait(1)
     end
     forwardI(10)
 end
