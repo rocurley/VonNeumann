@@ -397,6 +397,40 @@ function getUUID(id, meta)
    uuid = id + meta * 32768
    return uuid
  end
-
+ --[[
+ Seturp Turtle:
+ 01:Charge Station
+ 02:LV Solar
+ 03:Disk Drive
+ 04:Disk
+ 05:Supply Chest (Green)
+ 06:Interactive Sorter
+ 
+ ]]--
+function makeMiner()
+    turtle.turnRight()
+    placeI(1)
+    upI()
+    placeI(2)
+    turtle.turnLeft()
+    placeI(3)
+    turtle.select(4)
+    turtle.drop()
+    downI()
+    turtle.turnRight()
+    forwardI()
+    placeI(5)
+    backI()
+    placeI(6)
+    turtle.turnRight()
+    turtle.turnRight()
+    load(1228,0,1,16)
+    turtle.turnRight()
+    backI()
+    placeI(16)
+end
+    
+    
+    
 
 
