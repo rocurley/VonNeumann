@@ -429,6 +429,9 @@ function makeMiner()
     turtle.turnRight()
     backI()
     placeI(1)
+    while turtle.detect() do
+        wait(1)
+    end
 end
     
     
