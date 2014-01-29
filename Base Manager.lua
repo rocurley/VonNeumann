@@ -12,7 +12,6 @@ for i=0, 6 do
     end
 end
 
-end
 function getID(uuid)
   if uuid > 32768 then
     id = uuid % bit.blshift(1,15) -- this line, originally done wrong by Nevercast, was corrected by JateZero
