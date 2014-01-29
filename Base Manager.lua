@@ -21,7 +21,7 @@ while true do
         toCompress=math.floor((inventory[getUUID(4,0)]-1000)/9)
         print("Compressing " .. 9*toCompress .. " cobblestone.")
         ae.craft(getUUID(2506,0),toCompress)
-        jobsCount+=toCompress
+        jobsCount=jobsCount+toCompress
     end
     for i=0, 6 do
         if inventory[getUUID(2506,i)]~=nil then 
@@ -29,7 +29,7 @@ while true do
             if toCompress>0 then
                 print("Compressing " .. 9*toCompress .." ".. (i+1) .."x compressed cobblestone.")
                 ae.craft(getUUID(2506,i+1),toCompress)
-                jobsCount+=toCompress
+                jobsCount=jobsCount+toCompress
             end
         end
     end
