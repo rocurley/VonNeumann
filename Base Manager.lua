@@ -15,15 +15,17 @@ function getUUID(id, meta)
 
 ae=peripheral.wrap("bottom")
 inventory=ae.listItems()
-if inventory[getUUID(4,0)]>=1009 then
+if inventory[getUUID(4,0)]~=nil and inventory[getUUID(4,0)]>=1009 then
     print("Compressing " .. 9*math.floor(inventory[getUUID(4,0)]-1000/9) .. " cobblestone.")
     ae.craft(getUUID(2506,0),math.floor(inventory[getUUID(4,0)]-1000/9))
 end
 for i=0, 6 do
-    toCompress=math.floor(inventory[getUUID(2506,i)]/9)
-    if toCompress>0 then
-        print("Compressing " .. 9*toCompress .." ".. (i+1) .."x compressed cobblestone.")
-        ae.craft(getUUID(2506,i+1),toCompress)
+    if inventory[getUUID(2506,i)]~=nil then 
+        toCompress=math.floor(inventory[getUUID(2506,i)]/9)
+        if toCompress>0 then
+            print("Compressing " .. 9*toCompress .." ".. (i+1) .."x compressed cobblestone.")
+            ae.craft(getUUID(2506,i+1),toCompress)
+        end
     end
 end
 
