@@ -1,7 +1,7 @@
 os.loadAPI("quarry")
 turtle.turnRight()
 quarry.loadUp()
-quarry.forwardI()
+quarry.forwardI(5)
 while true do
     quarry.runOnce()
 end
