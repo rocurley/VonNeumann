@@ -15,7 +15,7 @@ function getUUID(id, meta)
 
 ae=peripheral.wrap("bottom")
 inventory=ae.listItems()
-while True
+while true do
     jobsCount=0
     if inventory[getUUID(4,0)]~=nil and inventory[getUUID(4,0)]>=1009 then
         toCompress=math.floor((inventory[getUUID(4,0)]-1000)/9)
