@@ -5,8 +5,11 @@ if inventory[getUUID(4,0)]>=1009 then
     ae.craft(getUUID(2506,0),math.floor(inventory[getUUID(4,0)]-1000/9))
 end
 for i=0, 6 do
-    print("Compressing " .. 9*,math.floor(inventory[getUUID(2506,i)]/9) .." ".. (i+1) .."x compressed cobblestone.")
-    ae.craft(getUUID(2506,i+1),math.floor(inventory[getUUID(2506,i)]/9))
+    toCompress=math.floor(inventory[getUUID(2506,i)]/9)
+    if toCompress>0 then
+        print("Compressing " .. 9*toCompress .." ".. (i+1) .."x compressed cobblestone.")
+        ae.craft(getUUID(2506,i+1),toCompress)
+    end
 end
 
 end
