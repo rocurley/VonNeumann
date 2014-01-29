@@ -16,7 +16,7 @@ function getUUID(id, meta)
 ae=peripheral.wrap("bottom")
 inventory=ae.listItems()
 if inventory[getUUID(4,0)]>=1009 then
-    print("Compressing " .. 9*math.floor(inventory[getUUID(4,0)]-1000/9) " cobblestone.")
+    print("Compressing " .. 9*math.floor(inventory[getUUID(4,0)]-1000/9) .. " cobblestone.")
     ae.craft(getUUID(2506,0),math.floor(inventory[getUUID(4,0)]-1000/9))
 end
 for i=0, 6 do
