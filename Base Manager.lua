@@ -14,7 +14,9 @@ function getUUID(id, meta)
  end
 
 ae=peripheral.wrap("bottom")
+cycle=0
 while true do
+    cycle=cycle+1
     inventory=ae.listItems()
     jobsCount=0
     if inventory[getUUID(4,0)]~=nil and inventory[getUUID(4,0)]>=1009 then
@@ -33,7 +35,7 @@ while true do
             end
         end
     end
-    print("Executing ".. jobsCount .. " jobs.")
-    os.sleep(jobsCount/20)
+    print("Run "..cycle..": Executing ".. jobsCount .. " jobs.")
+    os.sleep(1+jobsCount/20)
 end
 
