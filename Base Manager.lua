@@ -15,8 +15,8 @@ function getUUID(id, meta)
 
 function limit(inventory,id,name)
     count=inventory[id]
-    if dirtCount~=nil and count>1000*64 then
-        print("Dumping ".. ae.retrieve(idgetUUID(3,0)z,count-1000*64,5) .." ".. name)
+    if count~=nil and count>1000*64 then
+        print("Dumping ".. ae.retrieve(id,count-1000*64,5) .." ".. name)
     end
 end 
 ae=peripheral.wrap("bottom")
