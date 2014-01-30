@@ -13,6 +13,12 @@ function getUUID(id, meta)
    return uuid
  end
 
+function limit(inventory,id,name)
+    count=inventory[id]
+    if dirtCount~=nil and count>1000*64 then
+        print("Dumping ".. ae.retrieve(idgetUUID(3,0)z,count-1000*64,5) .." ".. name)
+    end
+end 
 ae=peripheral.wrap("bottom")
 cycle=0
 while true do
@@ -41,10 +47,9 @@ while true do
         end
         os.sleep(jobsCount/10)
     end
-    dirtCount=inventory[getUUID(3,0)]
-    if dirtCount~=nil and dirtCount>1000*64 then
-        print("Dumping ".. ae.retrieve(getUUID(3,0),dirtCount-1000*64,5) .." dirt")
-    end
+    limit(inventory,getUUID(3,0),"dirt")
+    limit(inventory,getUUID(243,0),"rubberwood")
+    limit(inventory,getUUID(369,0),"blaze rods")
     os.sleep(1)
 end
 
