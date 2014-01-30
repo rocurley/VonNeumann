@@ -1,5 +1,5 @@
 while true do
-    if turtle.getItemCount(1)>0 do
+    if turtle.getItemCount(1)>0 then
         turtle.select(1)
         turtle.place()
         turtle.select(2)
