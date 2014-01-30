@@ -6,5 +6,7 @@ while true do
         os.sleep(0.5)
         turtle.dig()
         turtle.dropDown()
+    else
+        os.sleep(0.5)
     end
 end
