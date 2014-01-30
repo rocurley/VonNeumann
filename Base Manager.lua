@@ -39,9 +39,12 @@ while true do
             cycle=cycle+1
             print("Run "..cycle..": Executing ".. jobsCount .. " jobs.")
         end
-        os.sleep(1+jobsCount/10)
-    else
-        os.sleep(1)
+        os.sleep(jobsCount/10)
     end
+    dirtCount=inventory[getUUID(3,0)]
+    if dirtCount~=nil and dirtCount>1020*64 then
+        print("Dumping ".. ae.retrieve(getUUID(3,0),dirtCount-1020*64,5) .." dirt")
+    end
+    os.sleep(1)
 end
 
