@@ -31,7 +31,7 @@ while true do
             ae.craft(getUUID(2506,0),toCompress)
             jobsCount=jobsCount+toCompress
         end
-        for i=0, 6 do
+        for i=0, 7 do
             if inventory[getUUID(2506,i)]~=nil then 
                 toCompress=math.floor(inventory[getUUID(2506,i)]/9)
                 if toCompress>0 then
@@ -50,6 +50,7 @@ while true do
     limit(inventory,getUUID(3,0),"dirt")
     limit(inventory,getUUID(243,0),"rubberwood")
     limit(inventory,getUUID(369,0),"blaze rods")
+    limit(inventory,getUUID(17,2),"birch wood")
     os.sleep(1)
 end
 
