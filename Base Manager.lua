@@ -43,7 +43,7 @@ while true do
     end
     dirtCount=inventory[getUUID(3,0)]
     if dirtCount~=nil and dirtCount>1000*64 then
-        print("Dumping ".. ae.retrieve(getUUID(3,0),dirtCount-1020*64,5) .." dirt")
+        print("Dumping ".. ae.retrieve(getUUID(3,0),dirtCount-1000*64,5) .." dirt")
     end
     os.sleep(1)
 end
