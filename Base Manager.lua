@@ -39,7 +39,7 @@ while true do
             cycle=cycle+1
             print("Run "..cycle..": Executing ".. jobsCount .. " jobs.")
         end
-        os.sleep(1+jobsCount/20)
+        os.sleep(1+jobsCount/10)
     else
         os.sleep(1)
     end
