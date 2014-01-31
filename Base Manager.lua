@@ -51,6 +51,7 @@ while true do
     limit(inventory,getUUID(243,0),"rubberwood")
     limit(inventory,getUUID(369,0),"blaze rods")
     limit(inventory,getUUID(17,2),"birch wood")
+    limit(inventory,getUUID(351,3),"cocoa")
     os.sleep(1)
 end
 
