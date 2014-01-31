@@ -24,34 +24,36 @@ cycle=0
 while true do
     inventory=ae.listItems()
     if inventory~=nil then --Deal gracefuly with disconnects
-        jobsCount=0
-        if inventory[getUUID(4,0)]~=nil and inventory[getUUID(4,0)]>=1009 then
-            toCompress=math.floor((inventory[getUUID(4,0)]-1000)/9)
-            print("Compressing " .. 9*toCompress .. " cobblestone.")
-            ae.craft(getUUID(2506,0),toCompress)
-            jobsCount=jobsCount+toCompress
-        end
-        for i=0, 7 do
-            if inventory[getUUID(2506,i)]~=nil then 
-                toCompress=math.floor(inventory[getUUID(2506,i)]/9)
-                if toCompress>0 then
-                    print("Compressing " .. 9*toCompress .." ".. (i+1) .."x compressed cobblestone.")
-                    ae.craft(getUUID(2506,i+1),toCompress)
-                    jobsCount=jobsCount+toCompress
+        if rs.getInput("front") then
+            jobsCount=0
+            if inventory[getUUID(4,0)]~=nil and inventory[getUUID(4,0)]>=1009 then
+                toCompress=math.floor((inventory[getUUID(4,0)]-1000)/9)
+                print("Compressing " .. 9*toCompress .. " cobblestone.")
+                ae.craft(getUUID(2506,0),toCompress)
+                jobsCount=jobsCount+toCompress
+            end
+            for i=0, 7 do
+                if inventory[getUUID(2506,i)]~=nil then 
+                    toCompress=math.floor(inventory[getUUID(2506,i)]/9)
+                    if toCompress>0 then
+                        print("Compressing " .. 9*toCompress .." ".. (i+1) .."x compressed cobblestone.")
+                        ae.craft(getUUID(2506,i+1),toCompress)
+                        jobsCount=jobsCount+toCompress
+                    end
                 end
             end
+            if jobsCount>0 then
+                cycle=cycle+1
+                print("Run "..cycle..": Executing ".. jobsCount .. " jobs.")
+            end
+            os.sleep(jobsCount/10)
         end
-        if jobsCount>0 then
-            cycle=cycle+1
-            print("Run "..cycle..": Executing ".. jobsCount .. " jobs.")
-        end
-        os.sleep(jobsCount/10)
+        limit(inventory,getUUID(3,0),"dirt")
+        limit(inventory,getUUID(243,0),"rubberwood")
+        limit(inventory,getUUID(369,0),"blaze rods")
+        limit(inventory,getUUID(17,2),"birch wood")
+        limit(inventory,getUUID(351,3),"cocoa")
+        os.sleep(1)
     end
-    limit(inventory,getUUID(3,0),"dirt")
-    limit(inventory,getUUID(243,0),"rubberwood")
-    limit(inventory,getUUID(369,0),"blaze rods")
-    limit(inventory,getUUID(17,2),"birch wood")
-    limit(inventory,getUUID(351,3),"cocoa")
-    os.sleep(1)
 end
 
